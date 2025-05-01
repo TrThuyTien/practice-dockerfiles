@@ -1,12 +1,12 @@
-FROM node:lts-slim
+FROM node:lts-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci --production
+COPY . .
 
-COPY . ./
+RUN npm install
 
-EXPOSE 3000
+EXPOSE 300
 
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
+
